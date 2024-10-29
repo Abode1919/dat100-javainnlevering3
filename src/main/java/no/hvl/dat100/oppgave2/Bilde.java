@@ -1,38 +1,39 @@
 package no.hvl.dat100.oppgave2;
 
-import no.hvl.dat100.common.TODO;
-
 public class Bilde extends Tekst {
 
-	// TODO - objekt variable
-	
-	public Bilde(int id, String bruker, String dato, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
-	}
+    private String url;
 
-	public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
-	}
-	
-	public String getUrl() {
-		throw new UnsupportedOperationException(TODO.method());
+    // Konstruktør med fem parametere
+    public Bilde(int id, String bruker, String dato, String tekst, String url) {
+        super(id, bruker, dato, tekst);
+        this.url = url;
+    }
 
-	}
+    // Konstruktør med seks parametere
+    public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
+        super(id, bruker, dato, likes, tekst);
+        this.url = url;
+    }
 
-	public void setUrl(String url) {
-		throw new UnsupportedOperationException(TODO.method());
-	}
+    // Getter for URL
+    public String getUrl() {
+        return url;
+    }
 
-	@Override
-	public String toString() {
-		throw new UnsupportedOperationException(TODO.method ());
+    // Setter for URL
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	}
+    // toString-metode for Bilde
+    @Override
+    public String toString() {
+        return "BILDE\n" + super.toString() + url + "\n";
+    }
 
-	// Metoden nedenfor er kun for valgfri oppgave 6
-	public String toHTML() {
-		
-		throw new UnsupportedOperationException(TODO.method());
-				
-	}
+    // Valgfri toHTML-metode (hvis nødvendig for oppgave 6)
+    public String toHTML() {
+        return "<html><body><h2>" + getBruker() + "</h2><p>Dato: " + getDato() + "</p><p>Likes: " + getLikes() + "</p><p>Tekst: " + getTekst() + "</p><img src=\"" + url + "\"/></body></html>";
+    }
 }
